@@ -1,7 +1,13 @@
+
+
 .image-right{
     padding:12px;
     
 }
 .image-right img{
     border-radius: 5px;
+}
+.head-text{
+    margin-top: 35px;
+    margin-bottom: 90px;
 }

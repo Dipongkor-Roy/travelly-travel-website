@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './Header.css'
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../Contexts/UserContext';
 
 
 const Header = () => {
+   const {user,logOut}=useContext(AuthContext);
+   const handleLogOut=()=>{
+    logOut()
+    .then(()=>{})
+    .catch(e=>console.error(e))
+   }
     return (
         <>
         <div className="navbar bg-base-100 nav m-0 ">
@@ -18,7 +25,17 @@ const Header = () => {
           </ul>
         </div>
         <div >
-          <Link to='/signUp' className="btn btn-ghost normal-case  text-cyan-600">Sign Up</Link>
+          {
+            user?.uid?
+            <>
+            <h2 className='text-cyan-600 mx-1 nameBorder'>{user?.displayName}</h2>
+            <Link onClick={handleLogOut} className="btn btn-ghost normal-case  text-cyan-600 mx-1">Log Out</Link></>
+            :
+            <>
+            <Link to='/logIn' className="btn btn-ghost normal-case text-cyan-600">LogIn</Link>
+            <Link to='/signUp' className="btn btn-ghost normal-case  text-cyan-600">Sign Up</Link>
+            </>
+          }
           </div>
           <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden"  onClick={()=>window.my_modal_1.showModal()}>

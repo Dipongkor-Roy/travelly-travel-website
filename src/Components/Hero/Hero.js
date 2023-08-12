@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Hero = () => {
     return (
         <div className='py-5'>
-          <div class="my-4 mx-0 text-center md:text-6xl text-5xl ">Things to do in Bangladesh</div>
+          <div class="my-4 mx-0 text-center md:text-6xl text-5xl head-text ">Things to do in Bangladesh</div>
       <div className='hero mt-5'>
       <div  className='hero-content flex-col lg:flex-row m-3 flex justify-items-center '>
             <div className='image-right'>
@@ -16,7 +16,7 @@ const Hero = () => {
                     <img className='shadow-2xl lg:m-4 mb-3 rounded' src="https://images.pexels.com/photos/122107/pexels-photo-122107.jpeg?auto=compress&cs=tinysrgb&w=400" alt="" />
                     <img className=' lg:mx-4  sm:my-4  shadow-2xl rounded' src="https://images.pexels.com/photos/2407636/pexels-photo-2407636.jpeg?auto=compress&cs=tinysrgb&w=400" alt="" />
                 </div>
-                <Link to="/book" className="link text-3xl italic text-cyan-600">Book A Tour ➡️</Link>
+                <Link to="/book" className="link text-3xl italic text-cyan-600  hover:text-cyan-700">Book A Tour ➡️</Link>
             </div>
           </div>
       </div>

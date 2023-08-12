@@ -5,6 +5,8 @@ import DateSelection from '../Components/DateSelection/DateSelection';
 import Hero from '../Components/Hero/Hero';
 import SignUp from '../Components/SingUp/SignUp';
 import LogIn from '../Components/LogIn/LogIn';
+import Hotels from '../Components/Hotels/Hotels';
+import PrivateRoutes from './PrivateRoutes';
 
 export const router=createBrowserRouter([
     {
@@ -26,7 +28,13 @@ export const router=createBrowserRouter([
             {
                 path:'/logIn',
                 element:<LogIn></LogIn>
-            }
+            },
+            {
+                path:'/hotels',
+                element:<PrivateRoutes><Hotels></Hotels></PrivateRoutes>,
+                loader:()=>fetch('https://travelly-travel-website-server.vercel.app/hotels')
+            },
+
 
         ]
     }

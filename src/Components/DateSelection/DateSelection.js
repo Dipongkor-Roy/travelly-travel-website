@@ -5,13 +5,14 @@ const DateSelection = () => {
     const [date,setDate]=useState();
     
     return (
-        <div className="hero my-5 lg:min-h-screen">
-        <div className="hero-content mt-5 flex-col lg:flex-row-reverse">
-          <div className="text-center lg:text-left">
+        <div className="my-5 lg:min-h-screen overflow-hidden">
+        <div className="lg:hero-content mt-5 flex-col lg:flex-row-reverse">
+        <div className="text-center lg:text-left overflow-hidden">
             <h1 className="text-5xl font-bold">Book Now ✈️</h1>
-            <p className="py-6">Embark on unforgettable journeys with our travel website. Discover new horizons, create lasting memories, and explore the world's wonders with ease. Your next adventure starts here.</p>
+            <p className="py-6">Embark on unforgettable journeys with our travel website. <br></br>Discover new horizons, create lasting memories, and explore<br></br>the world's wonders with ease. Your next adventure starts here.</p>
           </div>
-          <div className="card flex w-full max-w-sm shadow-2xl bg-base-100">
+          
+          <div className="card mx-5 w-25 flex shadow-2xl bg-base-100 overflow-hidden">
             <div className="card-body">
               <div className="form-control">
                 <label className="label">
@@ -43,10 +44,11 @@ const DateSelection = () => {
               </div>
               </div>
               <div className="form-control mt-6">
-                <Link><button className="btn w-full text-white rounded bg-cyan-600 hover:bg-cyan-700">Start Booking</button></Link>
+                <Link to='/hotels'><button className="btn w-full text-white rounded bg-cyan-600 hover:bg-cyan-700">Start Booking</button></Link>
               </div>
             </div>
           </div>
+        
         </div>
       </div>
     );
