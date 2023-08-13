@@ -8,7 +8,7 @@ import './Hotels.css'
 
 const Hotels = () => {
     const hotels=useLoaderData();
-    console.log(hotels)
+   
     return (
         <div className=" ">
         <div className="flex flex-row sm:flex-wrap">

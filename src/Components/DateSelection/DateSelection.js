@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom';
 
 const DateSelection = () => {
     const [date,setDate]=useState();
+   
     
     return (
-        <div className="my-5 lg:min-h-screen overflow-hidden">
+        <div className="my-5 flex justify-center items-center h-full lg:min-h-screen ">
         <div className="lg:hero-content mt-5 flex-col lg:flex-row-reverse">
         <div className="text-center lg:text-left overflow-hidden">
             <h1 className="text-5xl font-bold">Book Now ✈️</h1>

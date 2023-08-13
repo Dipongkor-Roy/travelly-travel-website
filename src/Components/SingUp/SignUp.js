@@ -1,9 +1,11 @@
 import React, { useContext} from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../Contexts/UserContext';
+import { toast } from 'react-hot-toast';
 
 const SignUp = () => {
-  const {createUser,user,profileUpdate}=useContext(AuthContext);
+  const {createUser,profileUpdate}=useContext(AuthContext);
+
  
   const handleSubmit=(event)=>{
     event.preventDefault();
@@ -11,13 +13,12 @@ const SignUp = () => {
     const name=form.name.value;
     const email=form.email.value;
     const password=form.Password.value;
-    console.log(name,email,password)
     updatedProfile(name)
-  
     createUser(email,password)
     .then((result)=>{
       const user=result.user;
       console.log(user)
+      handleToast(user)
       form.reset();
     })
     .catch(e=>console.log(e))
@@ -27,7 +28,17 @@ const SignUp = () => {
     console.log(name)
     profileUpdate(profile)
     .then(()=>{})
-    .catch(e=>console.log(e))
+    .catch(e=>{
+      console.log(e)
+    
+    })
+  }
+  const handleToast=(user)=>{
+    if(user){
+      toast.success('Successfully Account Created');
+    }else{
+      toast.error("Something Wrong Please Check");
+    }
   }
   
     return (
@@ -65,6 +76,7 @@ const SignUp = () => {
         <label className="label">
             <Link to='/logIn' className="label-text-alt link link-hover">Already Have Account ? Log In</Link>
           </label>
+         
       </div>
     </div>
   </div>

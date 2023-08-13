@@ -2,7 +2,6 @@ import React from "react";
 import { FaStar,FaBed } from 'react-icons/fa';
 
 const HotelCard = ({hotel}) => {
-  console.log(hotel)
   const {img,desc,name,ratings,cost}=hotel;
   return (
     <div className="flex flex-col lg:flex-row  w-3/5  bg-base-100 shadow-xl rounded-lg my-5">

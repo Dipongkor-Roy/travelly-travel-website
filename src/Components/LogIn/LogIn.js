@@ -1,31 +1,38 @@
-import React, { useContext} from 'react';
-import { Link, Navigate, useLocation } from 'react-router-dom';
+import React, { useContext, useState} from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Contexts/UserContext';
+import { toast } from 'react-hot-toast';
 
 const LogIn = () => {
-  const {logIn}=useContext(AuthContext)
+  const {logIn}=useContext(AuthContext);
+  const [error,setError]=useState("");
+  const navigate = useNavigate();
   const location=useLocation();
-  const from=location.state?.from?.pathname || '/'
-
-
-
-
-
+  const from=location.state?.from?.pathname || "/";
+  
   const handleSubmit=(event)=>{
     event.preventDefault();
     const form=event.target;
     const email=form.email.value;
     const password=form.password.value;
-    console.log(email,password)
     logIn(email,password)
     .then((result)=>{
       const user=result.user;
-      console.log(user)
       form.reset();
-      Navigate(from,{replace:true})
+      setError("");
+     if(user){
+      toast.success('Successfully Log In' );
+      navigate(from,{replace:true})
+     }else{
+      toast.error("Somthing is wrong check your email and password");
+     }
     })
-    .catch(e=>console.log(e))
+    .catch(e=>{
+      console.log(e)
+      setError(e.message)
+    })
   }
+  
     return (
       <form onSubmit={handleSubmit}>
           <div className="hero pt-4 lg:min-h-screen">
@@ -54,8 +61,11 @@ const LogIn = () => {
                 <button className="btn btn-primary bg-cyan-600 hover:bg-cyan-700">Log In</button>
               </div>
               <label className="label">
+              
                   <Link to='/signUp' className="label-text-alt link link-hover">New on Travelly ? Create Account</Link>
                 </label>
+                <p>{error}</p>
+                
             </div>
           </div>
         </div>
