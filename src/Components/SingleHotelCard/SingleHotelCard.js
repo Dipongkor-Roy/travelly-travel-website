@@ -3,7 +3,7 @@ import React from "react";
 const SingleHotelCard = ({ detailsHotel }) => {
   const { img, desc, cost, name } = detailsHotel;
   return (
-    <div className="card w-full bg-base-200 shadow-xl">
+    <div className="card mt-2 w-full bg-base-200 shadow-xl">
       <div className="flex items-center justify-between px-4 m-3">
         <p className="text-2xl">{name}</p>
         <p className="text-2xl">{cost}</p>
