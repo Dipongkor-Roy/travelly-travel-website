@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const HotelCard = ({hotel}) => {
   const {id,img,desc,name,ratings,cost}=hotel;
   return (
-    <div className="flex flex-col lg:flex-row  w-3/5  bg-base-100 shadow-xl rounded-lg my-5">
+    <div className="flex lg:flex-row items-center w-full bg-base-100 shadow-xl rounded-lg my-5">
       <figure className="px-5 pt-5">
         <img
           src={img}
