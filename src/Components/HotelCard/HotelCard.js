@@ -1,8 +1,9 @@
 import React from "react";
 import { FaStar,FaBed } from 'react-icons/fa';
+import { Link } from "react-router-dom";
 
 const HotelCard = ({hotel}) => {
-  const {img,desc,name,ratings,cost}=hotel;
+  const {id,img,desc,name,ratings,cost}=hotel;
   return (
     <div className="flex flex-col lg:flex-row  w-3/5  bg-base-100 shadow-xl rounded-lg my-5">
       <figure className="px-5 pt-5">
@@ -20,7 +21,7 @@ const HotelCard = ({hotel}) => {
          <p className="mx-1 flex items-center"><FaStar className="mx-1 items-center"/>{ratings}</p>
           <p className="mx-1 flex items-center"><FaBed className="mx-1 items-center"/>{cost}</p>
          </div>
-          <button className="btn btn-primary rounded-sm sm:mt-2">Book Now</button>
+       <Link to={`/hotels/${id}`}><button className="btn btn-primary rounded-sm sm:mt-2">Book Now</button></Link>
         </div>
       </div>
     </div>

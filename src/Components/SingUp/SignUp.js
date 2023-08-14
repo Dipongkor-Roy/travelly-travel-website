@@ -4,8 +4,8 @@ import { AuthContext } from '../Contexts/UserContext';
 import { toast } from 'react-hot-toast';
 
 const SignUp = () => {
+  
   const {createUser,profileUpdate}=useContext(AuthContext);
-
  
   const handleSubmit=(event)=>{
     event.preventDefault();
